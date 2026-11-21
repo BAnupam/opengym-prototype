@@ -9,6 +9,7 @@
   --surface-warm: #f4e7d9;
   --fg: #38291f;
   --fg-2: #6d513f;
+  --overlay: rgba(56, 41, 31, 0.4);
   --muted: #87674f;
   --meta: #8a6750;
   --border: #dcc9b8;
@@ -54,6 +55,7 @@
   --radius-md: 22px;
   --radius-lg: 34px;
   --radius-pill: 9999px;
+  --size-avatar: 64px;
   --elev-flat: none;
   --elev-ring: 0 0 0 1px var(--border);
   --elev-raised: 0 20px 90px rgba(176, 112, 42, 0.04);
