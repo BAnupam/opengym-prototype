@@ -12,13 +12,17 @@
     "build": "tsc"
   },
   "dependencies": {
+    "@fastify/rate-limit": "11.3.0",
     "@opengym/shared": "workspace:*",
     "fastify": "^5.0.0",
+    "fastify-plugin": "6.0.1",
+    "pg": "^8.13.0",
     "pino": "^9.0.0",
     "zod": "~3.25.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "@types/pg": "^8.11.0",
     "tsx": "^4.0.0",
     "typescript": "~5.9.0",
     "vitest": "^3.0.0"
