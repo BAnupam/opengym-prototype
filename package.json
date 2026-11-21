@@ -1,0 +1,22 @@
+{
+  "name": "opengym",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "eslint apps/web/src apps/api/src packages/shared/src",
+    "typecheck": "pnpm -r run typecheck",
+    "test": "pnpm -r --parallel run test",
+    "build": "pnpm -r run build"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.0",
+    "eslint": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.0",
+    "prettier": "^3.3.0",
+    "vitest": "^3.0.0"
+  },
+  "packageManager": "pnpm@9.15.0"
+}

@@ -22,3 +22,4 @@ postgres-data/
 # Editor and OS files
 .DS_Store
 *.log
+vitest-results.json
