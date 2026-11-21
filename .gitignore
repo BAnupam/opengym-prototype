@@ -1,0 +1,24 @@
+# Dependencies and package-manager artifacts
+node_modules/
+.pnpm-store/
+
+# Build, test, and tooling output
+.ralph/
+dist/
+coverage/
+playwright-report/
+test-results/
+.lighthouseci/
+*.tsbuildinfo
+
+# Environment and local configuration
+.env
+.env.*
+!.env.example
+
+# Docker/runtime data
+postgres-data/
+
+# Editor and OS files
+.DS_Store
+*.log

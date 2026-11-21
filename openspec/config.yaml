@@ -1,0 +1,21 @@
+schema: spec-driven
+
+context: |
+  OpenGym is a single-repository pnpm workspace for a React/Vite web client,
+  Fastify API, and PostgreSQL 16. Browser traffic is same-origin with API under
+  /api/v1; only the API accesses PostgreSQL. Shared Zod contracts live in
+  packages/shared. Use versioned timestamp-prefixed Drizzle SQL migrations and
+  keep feature folders and shared-index changes additive.
+
+rules:
+  proposal:
+    - State the FRD/ADR traceability, same-origin boundary, and explicit deferred scope.
+  specs:
+    - Use observable SHALL requirements with Given/When/Then scenarios.
+    - Include API, migration, accessibility, and quality-gate evidence when affected.
+  design:
+    - Preserve API-only database access, shared Zod contracts, CSS Modules, and design tokens.
+    - Do not activate deferred OIDC, Google, Anthropic, demo, or journal behavior without a governing decision.
+  tasks:
+    - Keep tasks small enough to verify independently.
+    - Include automated tests, migration checks, accessibility checks, and relevant observability evidence.

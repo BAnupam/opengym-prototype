@@ -1,0 +1,68 @@
+/* OpenGym visual token contract (web).
+ * Structural base: claymorphism. Colour and type overrides are derived from
+ * the approved OpenGym prototype reference. Use var(--token), never a raw value.
+ */
+
+:root {
+  --bg: #fff4e9;
+  --surface: #fffaf4;
+  --surface-warm: #f4e7d9;
+  --fg: #38291f;
+  --fg-2: #6d513f;
+  --muted: #87674f;
+  --meta: #8a6750;
+  --border: #dcc9b8;
+  --border-soft: #f0e3d6;
+  --accent: #ffb98b;
+  --accent-strong: #f9a16d;
+  --accent-soft: #ffd7ae;
+  --accent-pale: #ffead7;
+  --accent-ink: #a64e23;
+  --accent-on: #302822;
+  --accent-hover: #f9a16d;
+  --accent-active: #e98c58;
+  --success: #48683b;
+  --warn: #a66c28;
+  --danger: #a6473d;
+  --font-display: "Segoe UI", Arial, sans-serif;
+  --font-display-serif: Georgia, serif;
+  --font-body: "Segoe UI", Arial, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, Menlo, monospace;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 24px;
+  --text-2xl: 36px;
+  --text-3xl: 54px;
+  --text-4xl: 76px;
+  --leading-body: 1.6;
+  --leading-tight: 1.06;
+  --tracking-display: -0.055em;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --section-y-desktop: 96px;
+  --section-y-tablet: 68px;
+  --section-y-phone: 48px;
+  --radius-sm: 14px;
+  --radius-md: 22px;
+  --radius-lg: 34px;
+  --radius-pill: 9999px;
+  --elev-flat: none;
+  --elev-ring: 0 0 0 1px var(--border);
+  --elev-raised: 0 20px 90px rgba(176, 112, 42, 0.04);
+  --focus-ring: 0 0 0 3px rgba(166, 78, 35, 0.42);
+  --motion-fast: 150ms;
+  --motion-base: 240ms;
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --container-max: 1220px;
+  --container-gutter-desktop: 40px;
+  --container-gutter-tablet: 28px;
+  --container-gutter-phone: 17px;
+}
