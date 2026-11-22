@@ -1,0 +1,13 @@
+services:
+  api:
+    image: ${RELEASE_API_IMAGE:?release manifest API image is required}
+    environment:
+      APP_ENV: ${APP_ENV:?environment is required}
+      DATABASE_URL: ${DATABASE_URL:?database connection is required}
+
+  web:
+    image: ${RELEASE_WEB_IMAGE:?release manifest web image is required}
+    ports:
+      - "${WEB_PORT:?web port is required}:80"
+    depends_on:
+      - api

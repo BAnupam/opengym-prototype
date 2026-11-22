@@ -62,6 +62,10 @@ try {
     env: environment,
     shell: process.platform === "win32",
   });
+  execFileSync("node", ["--test", "scripts/ci/release-manifest.test.mjs"], {
+    stdio: "inherit",
+    env: environment,
+  });
 } finally {
   try {
     docker(["rm", "-f", container], { stdio: "ignore" });

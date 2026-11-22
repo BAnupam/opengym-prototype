@@ -28,6 +28,7 @@ const run = (command, args, options = {}) => new Promise((resolve) => {
 
 const escapeXml = (value) => value.replace(/[<>&"']/g, (character) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;", "'": "&apos;" })[character]);
 const results = [];
+const coverage = process.argv.includes("--coverage");
 let port;
 
 try {
@@ -46,7 +47,7 @@ try {
   }
   if (!ready) throw new Error("scratch PostgreSQL did not become ready");
 
-  const test = await run(pnpm, ["-r", "--parallel", "run", "test"], {
+  const test = await run(pnpm, coverage ? ["run", "test:coverage:workspace"] : ["-r", "--parallel", "run", "test"], {
     env: { ...process.env, DATABASE_HOST: "127.0.0.1", DATABASE_PORT: String(port), DATABASE_USER: "postgres", DATABASE_PASSWORD: "" },
     shell: process.platform === "win32",
   });
