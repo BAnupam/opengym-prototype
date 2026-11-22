@@ -16,7 +16,9 @@
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.0",
     "prettier": "^3.3.0",
-    "vitest": "^3.0.0"
+    "vitest": "^3.0.0",
+    "@playwright/test": "^1.50.0",
+    "@axe-core/playwright": "^4.10.0"
   },
   "packageManager": "pnpm@9.15.0"
 }
