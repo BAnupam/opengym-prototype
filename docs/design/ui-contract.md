@@ -18,10 +18,10 @@ The source establishes the light, warm-neutral Peach visual language, rounded so
 - Selection: The approved reference has a warm cream ground, soft terracotta/Peach accents, large rounded surfaces, and a calm consumer tone. Claymorphism supplies the closest structural basis (soft elevation, 14/22/34 px radii, and spacious rhythm); its colours and typography are overridden from the approved reference.
 - Considered alternatives: editorial was rejected because its rust, content-led reading character is too text-forward; clean was rejected because its smaller radii and neutral product-ui character do not match the reference; bento was rejected because its cool blue dashboard bias contradicts the Peach palette.
 - Platform: web (derived from `docs/source/TDD-01.md` §1–2; the repository is greenfield and has no detectable application manifest yet)
-- Tokens: design-system/opengym/tokens.css
+- Tokens: apps/web/src/styles/tokens.css
 - Theme Entry Point: apps/web/src/main.tsx
 
-The application root does not yet exist. Ralph must import `../../../design-system/opengym/tokens.css` from `apps/web/src/main.tsx` before any other style import (or import it first from the root stylesheet that `main.tsx` loads). This wiring is outstanding by design for the greenfield run; no application root was scaffolded here.
+Ralph must import `./styles/tokens.css` from `apps/web/src/main.tsx` before any other style import (or import it first from the root stylesheet that `main.tsx` loads).
 
 ## Token Direction
 
@@ -49,7 +49,7 @@ The application root does not yet exist. Ralph must import `../../../design-syst
 
 ## Implementation Constraints
 
-- Components use only `design-system/opengym/tokens.css`; no raw colours, spacing, radii, or timing literals in component CSS.
+- Components use only `apps/web/src/styles/tokens.css`; no raw colours, spacing, radii, or timing literals in component CSS.
 - At 768 px and above, use the required labelled top navigation; below 768 px, use the required labelled bottom navigation with 44 × 44 CSS-px minimum targets.
 - Future Google and demo actions are visible but inactive in this increment: no navigation, API request, identity-provider request, or external integration.
 - Use real FRD/SRS copy. Do not copy prototype-only explanatory text or any erroneous prototype behavior.
@@ -57,4 +57,4 @@ The application root does not yet exist. Ralph must import `../../../design-syst
 ## Open Items
 
 - The screenshots show six persona figures, but no reusable/licensed source artwork was supplied. The build must obtain approved assets or implement the required figures without extracting pixels from the composite screenshots.
-- Root theme wiring is outstanding until Ralph creates `apps/web/src/main.tsx`.
+- None for theme-token wiring.

@@ -6,7 +6,7 @@ const options = {
   max: 300,
   timeWindow: "1 minute",
   keyGenerator: (request: { ip: string }) => request.ip,
-        errorResponseBuilder: (_request, context) => {
+  errorResponseBuilder: (_request: unknown, context: { statusCode: number }) => {
           const error = new Error("Too many requests, please try again later") as Error & {
             code: string;
             statusCode: number;

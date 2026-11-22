@@ -5,8 +5,9 @@
   "scripts": {
     "lint": "eslint apps/web/src apps/api/src packages/shared/src",
     "typecheck": "pnpm -r run typecheck",
-    "test": "pnpm -r --parallel run test",
-    "build": "pnpm -r run build"
+    "test": "node scripts/test-runner.mjs",
+    "build": "pnpm -r run build",
+    "test:compose": "node scripts/compose-smoke.mjs"
   },
   "devDependencies": {
     "typescript": "~5.9.0",

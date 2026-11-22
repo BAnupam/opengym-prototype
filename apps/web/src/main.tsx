@@ -1,4 +1,4 @@
-import "../../design-system/opengym/tokens.css";
+import "./styles/tokens.css";
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { App } from "./app";
