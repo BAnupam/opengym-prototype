@@ -1,6 +1,14 @@
 import fp from "fastify-plugin";
 import { ZodError, ZodType } from "zod";
 
+type RateLimitError = Error & { code: "RATE_LIMIT_EXCEEDED"; statusCode?: number };
+
+const isRateLimitError = (error: unknown): error is RateLimitError => {
+  if (!(error instanceof Error)) return false;
+  const candidate = error as unknown as { code?: unknown };
+  return candidate.code === "RATE_LIMIT_EXCEEDED";
+};
+
 declare module "fastify" {
   interface FastifyInstance {
     validateInput<T>(schema: ZodType<T>, input: unknown): T;
@@ -31,7 +39,7 @@ export default fp(async (app) => {
         },
       });
     }
-    if (error.code === "RATE_LIMIT_EXCEEDED") {
+    if (isRateLimitError(error)) {
       return reply.status(error.statusCode ?? 429).send({
         error: { code: "RATE_LIMIT_EXCEEDED", message: error.message },
       });

@@ -14,3 +14,4 @@
 
 - [x] 3.1 Add an automated Compose smoke test that starts the stack on an available host port and verifies same-origin `/api/v1/health`, then cleans up containers and test-created resources
 - [x] 3.2 Document the local Compose startup and configurable port workflow, verifying the documented command runs without a fixed host database port
+- [x] 3.3 Relocate the web token stylesheet into the web source tree and verify the Vite production build resolves the entry-point import

@@ -1,9 +1,13 @@
 import { createServer } from "node:net";
 import { spawn } from "node:child_process";
+import { mkdir, writeFile } from "node:fs/promises";
+import { dirname, join } from "node:path";
 
 const pnpm = "pnpm";
 const docker = process.platform === "win32" ? "docker.exe" : "docker";
 const containerName = `cap-4-verify-${process.pid}`;
+const outputIndex = process.argv.indexOf("--outputFile");
+const outputFile = outputIndex >= 0 ? process.argv[outputIndex + 1] : undefined;
 
 const freePort = () => new Promise((resolve, reject) => {
   const server = createServer();
@@ -60,5 +64,14 @@ try {
 
 const failures = results.filter((result) => result.code !== 0);
 const cases = results.map((result) => `  <testcase name="${result.name}">${result.code === 0 ? "" : `<failure message="failed">${escapeXml(result.output.slice(-4000))}</failure>`}</testcase>`).join("\n");
-process.stdout.write(`<?xml version="1.0" encoding="UTF-8"?>\n<testsuite name="opengym" tests="${results.length}" failures="${failures.length}" errors="0">\n${cases}\n</testsuite>\n`);
+const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<testsuite name="opengym" tests="${results.length}" failures="${failures.length}" errors="0">\n${cases}\n</testsuite>\n`;
+if (outputFile) {
+  await mkdir(dirname(outputFile), { recursive: true });
+  await writeFile(outputFile, xml);
+} else if (process.env.IRIS_TEST_REPORT_DIR) {
+  await mkdir(process.env.IRIS_TEST_REPORT_DIR, { recursive: true });
+  await writeFile(join(process.env.IRIS_TEST_REPORT_DIR, "junit.xml"), xml);
+} else {
+  process.stdout.write(xml);
+}
 process.exit(failures.length === 0 ? 0 : 1);

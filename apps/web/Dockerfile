@@ -10,7 +10,6 @@ RUN corepack enable && pnpm install --frozen-lockfile
 
 COPY apps/web apps/web
 COPY packages/shared packages/shared
-COPY design-system design-system
 
 RUN pnpm --filter @opengym/web run build
 

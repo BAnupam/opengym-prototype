@@ -18,7 +18,7 @@ Developers need a reproducible local runtime that verifies the foundation's requ
 - `local-runtime`: Containerized local development runtime that serves web and API under one origin while keeping database configuration in the API container.
 
 ### Modified Capabilities
-- None.
+- `web-shell`: Relocate the token contract into the web source tree so its build context contains the token stylesheet.
 
 ## Impact
 
