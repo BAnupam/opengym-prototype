@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node dist/app.js",
+    "start": "node dist/server.js",
     "dev": "tsx watch src/app.ts",
     "lint": "eslint src/",
     "typecheck": "tsc --noEmit",
