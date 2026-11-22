@@ -39,6 +39,13 @@ try {
   if (!response?.ok) throw new Error("same-origin /api/v1/health did not return 200");
   const body = await response.json();
   if (body.status !== "ok") throw new Error("health response did not contain status ok");
+  const routeResponse = await fetch(`http://127.0.0.1:${webPort}/today`);
+  if (!routeResponse.ok) throw new Error("SPA fallback did not return the client route");
+  const routeMarkup = await routeResponse.text();
+  if (!routeMarkup.includes('<div id="root"></div>')) {
+    throw new Error("SPA fallback did not return the web entry point");
+  }
+  await runCompose(["exec", "-T", "web", "sh", "-c", "test -z \"$DATABASE_URL\""], env);
 } finally {
   await runCompose(["down", "--volumes", "--remove-orphans"], env).catch(() => undefined);
 }
